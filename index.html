@@ -9,7 +9,28 @@
     -->
     <script src="jquery-3.5.1.min.js"></script>
     <script defer src="script.js"></script>
+    <script defer src="constants.js"></script>
     <script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
+    <script type="text/javascript" src="js/jqvmap-master.1.5.1/jqvmap-master/dist/jquery.vmap.js"></script>
+    <script type="text/javascript" src="js/jqvmap-master.1.5.1/jqvmap-master/dist/maps/jquery.vmap.world.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/jqvmap-master.1.5.1/jqvmap-master/examples/js/jquery.vmap.sampledata.js"></script>
+
+    <script>
+        jQuery(document).ready(function () {
+            jQuery('#vmap').vectorMap({
+                map: 'world_en',
+                backgroundColor: '#333333',
+                color: '#ffffff',
+                hoverOpacity: 0.7,
+                selectedColor: '#666666',
+                enableZoom: true,
+                showTooltip: true,
+                scaleColors: ['#C8EEFF', '#006491'],
+                values: sample_data,
+                normalizeFunction: 'polynomial'
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -27,17 +48,17 @@
                     <span>Spain<i class="spanish-flag"></i></span>
                 </button>
             </nav>
-            <div >
+            <div>
                 <div class="select-menu">
                     <form id="world-search-id" class="world-search" action="" method="post">
                         <label for="country-id">Country</label>
                         <select name="country" id="country-id">
-                        <option value="world" selected>Entire World</option>
+                            <option value="world" selected>Entire World</option>
                         </select>
                         <label for="day-id">Day</label>
                         <input type="date" name="date" id="day-id-world">
                         <button type="submit" id="btn-search-world">Search</button>
-                        
+
                     </form>
                     <form id="spain-search-id" class="spain-search hide" action="" method="post">
 
@@ -57,7 +78,10 @@
                         <li>Total recovered</li>
                         <li>New recovered</li>
                     </ul>
+                    <div class="world-container">
+                        <div id="vmap" style="width: 800px; height: 500px;"></div>
 
+                    </div>
                 </div>
             </div>
 
@@ -66,6 +90,7 @@
 
         </footer>
     </div>
+
 </body>
 
 </html>

@@ -38,7 +38,25 @@ $(document).ready(function () {
 
 });
 
-
+function addEvents(){
+    let date =$("#day-id-world");
+    Object.keys(ISO_COUNTRIES).forEach((el)=>{
+        let country = $(`#jqvmap1_${el.toLowerCase()}`);
+        let originalColor = country.css("fill");
+        if(country.length>0){
+            let countryName = ISO_COUNTRIES[el].toLowerCase();
+            let exception = CODE_COUNTRIES.indexOf(el.toLowerCase());
+            if( exception!==-1){
+                countryName = COUNTRIES[exception];
+            }
+            country.click(()=>{
+               console.log("hello its me: "+countryName);
+               displayData(validateDateInput(date),countryName);
+               country.css("fill",originalColor);//cancel library
+            });
+        }
+    });
+}
 
 
 //checks if the countries and their respective regions are in the local storage.If not

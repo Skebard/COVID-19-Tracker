@@ -186,3 +186,18 @@ footer{
 }
 
 
+/**** world map ***/
+#vmap{
+    margin:0 auto;
+    background-color:white ;
+    border-radius:50%;
+}
+#vmap > svg{
+    overflow:hidden;
+}
+.jqvmap-label{
+    display:none !important;
+}
+path{
+    cursor:pointer;
+}
