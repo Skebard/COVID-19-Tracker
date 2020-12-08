@@ -27,7 +27,7 @@
 ## About The Project
 Simple covid-19 tracker with information about daily cases of most countries. The world is clickable.
 
-![Screenshot](Images/Documentation/fullpage.png)
+![Screenshot](images/Documentation/fullpage.png)
 
 
 
