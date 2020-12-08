@@ -13,7 +13,6 @@ $(document).ready(function () {
     getSelectNames(lang);
 
     $.getJSON('http://www.geoplugin.net/json.gp?jsoncallback=?', function (data) {
-        console.log(data);
         data.geoplugin_countryName = "spain";
         selectCountryRegions(data.geoplugin_countryName);
     });
@@ -31,8 +30,6 @@ $(document).ready(function () {
 
 
     $.getJSON('https://api.covid19tracking.narrativa.com/api/country/spain/region/madrid?date_from=2020-03-20&date_to=2020-03-22', function (data) {
-        console.log(data);
-
     });
 
 
@@ -117,12 +114,9 @@ function displayData(date, country, region = undefined) {
         //global = {...global,...data}
         if (region === undefined) {
             global = data;
-            console.log(formatedDate);
-            console.log(data);
             oData = data.dates[formatedDate].countries;
             let firstKey = Object.keys(oData)[0];
             oData = oData[firstKey];
-            console.log(oData);
             createRow(oData);
         } else {
             oData = data.regions[0];
@@ -231,7 +225,6 @@ function displayWorld(date = undefined) {
     });
 
     function printTable() {
-        console.log(currentData);
         let oData = currentData.dates[formatedDate].countries;
         let keys = Object.keys(oData);
         keys.sort((a, b) => {
